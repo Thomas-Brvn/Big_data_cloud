@@ -68,3 +68,24 @@ pip install -r requirements.txt
 ```bash
 streamlit run app.py
 ```
+
+### Base de données
+Ce dashboard utilise une base MongoDB Atlas.
+Si vous utilisez votre propre cluster, remplacez l’URI dans app.py :
+
+```bash
+mongodb+srv://<user>:<password>@<cluster>.mongodb.net/
+```
+
+### Structure du projet
+```bash
+projet-restaurants-nyc/
+│
+├── app.py                 # Code principal Streamlit
+├── README.md              # Documentation du projet
+├── requirements.txt       # Dépendances
+├── .gitignore             # Fichiers ignorés par Git
+└── run.sh                 # Script de lancement (Linux / Mac)
+```
+
+
