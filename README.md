@@ -45,3 +45,26 @@ Ce projet montre l'utilisation combinée de :
 ```bash
 git clone https://github.com/<votre-username>/<nom-du-repo>.git
 cd <nom-du-repo>
+```
+
+
+## 2. Créer un environnement virtuel (optionnel)
+
+```bash
+python3 -m venv env
+source env/bin/activate   # Mac / Linux
+env\Scripts\activate      # Windows
+```
+
+##3. Installer les dépendances
+
+```bash
+pip install -r requirements.txt
+```
+
+
+##4. Lancement de l'application
+
+```bash
+streamlit run app.py
+```
