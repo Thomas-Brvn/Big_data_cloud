@@ -1,2 +1,47 @@
-# Big_data_cloud
-Cours SDV
+# Dashboard interactif des restaurants de New York  
+Analyse, visualisation et exploration des restaurants de NYC via Streamlit et MongoDB Atlas
+
+---
+
+## Présentation du projet
+
+Ce projet propose une application Streamlit permettant d'explorer les restaurants de New York à partir de la base d'exemple MongoDB Atlas "sample_restaurants".  
+Elle permet de :
+
+- Visualiser les restaurants sur une carte interactive en mode points ou heatmap
+- Filtrer par borough (Manhattan, Brooklyn, etc.)
+- Filtrer par type de cuisine
+- Afficher un tableau des données filtrées
+- Générer des graphiques (Seaborn / Matplotlib)
+
+Ce projet montre l'utilisation combinée de :
+- MongoDB Atlas
+- Streamlit
+- PyDeck pour la visualisation géographique
+
+---
+
+## Fonctionnalités principales
+
+### Carte interactive
+- Affichage des restaurants géolocalisés
+- Mode heatmap pour visualiser la densité
+- Tooltip dynamique contenant le nom et le type de cuisine
+
+### Filtres
+- Filtre par borough
+- Filtre par type de cuisine
+
+### Visualisations
+- Répartition du nombre de restaurants par borough
+- Top 10 des types de cuisines
+- Tableau des restaurants filtrés
+
+---
+
+## Installation
+
+### 1. Cloner le projet
+```bash
+git clone https://github.com/<votre-username>/<nom-du-repo>.git
+cd <nom-du-repo>
