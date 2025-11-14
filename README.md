@@ -48,7 +48,7 @@ cd <nom-du-repo>
 ```
 
 
-## 2. Créer un environnement virtuel 
+### 2. Créer un environnement virtuel 
 
 ```bash
 python3 -m venv env
@@ -56,14 +56,14 @@ source env/bin/activate   # Mac / Linux
 env\Scripts\activate      # Windows
 ```
 
-##3. Installer les dépendances
+### 3. Installer les dépendances
 
 ```bash
 pip install -r requirements.txt
 ```
 
 
-##4. Lancement de l'application
+### 4. Lancement de l'application
 
 ```bash
 streamlit run app.py
