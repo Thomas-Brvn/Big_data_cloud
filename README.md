@@ -88,4 +88,6 @@ projet-restaurants-nyc/
 └── run.sh                 # Script de lancement (Linux / Mac)
 ```
 
+### Données chargées dans MongoDB Atlas
+
 
