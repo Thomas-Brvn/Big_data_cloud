@@ -48,7 +48,7 @@ cd <nom-du-repo>
 ```
 
 
-## 2. Créer un environnement virtuel (optionnel)
+## 2. Créer un environnement virtuel 
 
 ```bash
 python3 -m venv env
