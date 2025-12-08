@@ -1,4 +1,4 @@
-# Dashboard Vélib Paris 🚲
+# Dashboard Vélib Paris - TD1 🚲
 
 ## Description
 
@@ -78,3 +78,71 @@ Entrez une adresse à Paris dans le champ prévu.
 La carte s’affiche avec les stations et leur disponibilité.
 Le tableau à droite montre les stations les plus proches avec la distance.
 Les graphes en dessous permettent d’analyser rapidement la disponibilité des vélos dans toute la ville.
+
+
+# Projet Neo4j - Analyse de données type Stack Overflow - TD2
+
+Ce projet consiste en la création d'une base de données **graph** avec Neo4j à partir de données liées à une plateforme de questions/réponses similaire à Stack Overflow. L'objectif est d'explorer les relations entre utilisateurs, questions, réponses et tags, et de créer un **dashboard** pour visualiser certaines analyses.
+
+---
+![Exemple de la carte](https://github.com/Thomas-Brvn/images/blob/main/neo4j3.jpg)
+## Contenu du projet
+
+- **Import des données** : Les données ont été importées dans Neo4j et structurées sous forme de graphes, permettant d'exploiter les relations entre utilisateurs, questions, réponses et tags.  
+- **Graphes créés** : 
+  - Utilisateurs et leurs réponses
+  - Questions et leurs tags
+  - Relations entre utilisateurs et tags via leurs contributions
+- **Requêtes Cypher** : Plusieurs requêtes ont été développées pour analyser les données :
+  - Nombre de questions posées et réponses apportées par utilisateur
+  - Questions les plus populaires par tag
+  - Utilisateurs les plus actifs sur certains tags
+  - Graph des relations entre utilisateurs et tags
+- **Dashboard** : Un dashboard final permet de visualiser les statistiques principales et les insights issus des graphes.
+
+
+---
+
+## Technologies utilisées
+
+- **Neo4j** : Base de données graphe pour stocker et interroger les données.  
+- **Cypher** : Langage de requête pour graphes Neo4j.  
+- **Tableau / Neo4j Bloom / Dashboards personnalisés** : Pour la visualisation et l'analyse des résultats.
+
+---
+
+## Exemple de requêtes
+
+```cypher
+// Nombre de questions par utilisateur
+MATCH (u:User)-[:ASKED]->(q:Question)
+RETURN u.name, COUNT(q) AS nb_questions
+ORDER BY nb_questions DESC
+LIMIT 10;
+
+// Top tags les plus utilisés
+MATCH (:Question)-[:HAS_TAG]->(t:Tag)
+RETURN t.name, COUNT(*) AS nb_questions
+ORDER BY nb_questions DESC
+LIMIT 10;
+```
+
+Objectifs
+Explorer les interactions entre utilisateurs et contenus.
+Identifier les utilisateurs les plus actifs et les tags les plus populaires.
+Créer des visualisations intuitives pour représenter les insights issus du graphe.
+
+## Organisation du projet
+
+/projet-neo4j/
+│
+├─ data/                  # Données importées
+├─ scripts/               # Scripts d'import et requêtes Cypher
+├─ dashboard/             # Visualisations finales
+└─ README.md
+
+
+## Apercu
+![Exemple de la carte](https://github.com/Thomas-Brvn/images/blob/main/neo4j1.jpg)
+![Exemple de la carte](https://github.com/Thomas-Brvn/images/blob/main/neo4j2.jpg)
+
