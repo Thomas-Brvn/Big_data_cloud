@@ -1,93 +1,80 @@
-# Dashboard interactif des restaurants de New York  
-Analyse, visualisation et exploration des restaurants de NYC via Streamlit et MongoDB Atlas
+# Dashboard Vélib Paris 🚲
 
----
+## Description
 
-## Présentation du projet
+Ce projet est un **dashboard interactif** pour visualiser la disponibilité des vélos Vélib en temps réel à Paris.  
+Il se connecte à une **base de données MongoDB** contenant les données des stations, et affiche :  
 
-Ce projet propose une application Streamlit permettant d'explorer les restaurants de New York à partir de la base d'exemple MongoDB Atlas "sample_restaurants".  
-Elle permet de :
+![Exemple de la carte](https://github.com/Thomas-Brvn/images/blob/main/velib1.jpg)
 
-- Visualiser les restaurants sur une carte interactive en mode points ou heatmap
-- Filtrer par borough (Manhattan, Brooklyn, etc.)
-- Filtrer par type de cuisine
-- Afficher un tableau des données filtrées
-- Générer des graphiques (Seaborn / Matplotlib)
 
-Ce projet montre l'utilisation combinée de :
-- MongoDB Atlas
-- Streamlit
-- PyDeck pour la visualisation géographique
+- Une **carte interactive** des stations avec un code couleur selon la disponibilité des vélos.  
+- Un **tableau des stations les plus proches** par rapport à une adresse entrée par l’utilisateur.  
+- Des **graphes analytiques** :  
+  - Jauge du nombre total de vélos disponibles  
+  - Top 10 des stations avec le plus de vélos  
+  - Répartition des vélos par arrondissement
+ 
+
+![Exemple de la carte](https://github.com/Thomas-Brvn/images/blob/main/velib2.jpg)
+
+L’utilisateur peut entrer son **adresse à Paris** pour visualiser les stations autour de lui et la distance vers chacune.  
 
 ---
 
 ## Fonctionnalités principales
 
-### Carte interactive
-- Affichage des restaurants géolocalisés
-- Mode heatmap pour visualiser la densité
-- Tooltip dynamique contenant le nom et le type de cuisine
+1. **Carte interactive (Folium)**  
+   - Marqueurs colorés :  
+     - **Vert** : plus de 5 vélos  
+     - **Orange** : 1 à 5 vélos  
+     - **Rouge** : 0 vélo disponible  
+   - Marqueur bleu indiquant **l’adresse de l’utilisateur**  
+   - Trait bleu vers les stations proches (<500 m)  
 
-### Filtres
-- Filtre par borough
-- Filtre par type de cuisine
+2. **Tableau des stations les plus proches**  
+   - Nom de la station  
+   - Nombre de vélos disponibles  
+   - Distance (en mètres) par rapport à l’adresse  
 
-### Visualisations
-- Répartition du nombre de restaurants par borough
-- Top 10 des types de cuisines
-- Tableau des restaurants filtrés
+3. **Graphiques analytiques (Plotly)**  
+   - Jauge de vélos totaux disponibles  
+   - Top 10 stations avec le plus de vélos  
+   - Répartition des vélos par arrondissement  
+
+velib_dashboard/
+│
+├── app.py # Code principal Streamlit
+├── requirements.txt # Dépendances Python
+├── README.md # Documentation du projet
+└── data/ # (Optionnel) dossier pour fichiers de données locaux
+
+
+
+- **MongoDB Atlas** contient la collection `stations` avec les données des stations Vélib.  
+- **Python** et **Streamlit** permettent la visualisation interactive.  
+- **Folium** pour la carte et le clustering des stations.  
+- **Plotly** pour les graphiques interactifs.  
 
 ---
 
 ## Installation
 
-### 1. Cloner le projet
+1. Cloner le projet :  
 ```bash
-git clone https://github.com/<votre-username>/<nom-du-repo>.git
-cd <nom-du-repo>
+git clone https://github.com/ton-compte/velib_dashboard.git
+cd velib_dashboard
 ```
-
-
-### 2. Créer un environnement virtuel 
-
+2. Cloner le projet :
 ```bash
-python3 -m venv env
-source env/bin/activate   # Mac / Linux
-env\Scripts\activate      # Windows
-```
+python -m venv venv
+source venv/bin/activate   # Mac/Linux
+# ou venv\Scripts\activate # Windows
 
-### 3. Installer les dépendances
-
-```bash
 pip install -r requirements.txt
 ```
-
-
-### 4. Lancement de l'application
-
-```bash
-streamlit run app.py
-```
-
-### Base de données
-Ce dashboard utilise une base MongoDB Atlas.
-Si vous utilisez votre propre cluster, remplacez l’URI dans app.py :
-
-```bash
-mongodb+srv://<user>:<password>@<cluster>.mongodb.net/
-```
-
-### Structure du projet
-```bash
-projet-restaurants-nyc/
-│
-├── app.py                 # Code principal Streamlit
-├── README.md              # Documentation du projet
-├── requirements.txt       # Dépendances
-├── .gitignore             # Fichiers ignorés par Git
-└── run.sh                 # Script de lancement (Linux / Mac)
-```
-
-### Données chargées dans MongoDB Atlas
-
-
+## Utilisation
+Entrez une adresse à Paris dans le champ prévu.
+La carte s’affiche avec les stations et leur disponibilité.
+Le tableau à droite montre les stations les plus proches avec la distance.
+Les graphes en dessous permettent d’analyser rapidement la disponibilité des vélos dans toute la ville.
