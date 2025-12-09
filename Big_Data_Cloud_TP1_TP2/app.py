@@ -5,7 +5,7 @@ from pymongo.server_api import ServerApi
 app = Flask(__name__)
 
 # --- Connexion Mongo Atlas ---
-uri = "mongodb+srv://ludovic:uIrcGAaSI5zgCNAf@tpbigdata.wbz99nw.mongodb.net/?appName=TPBigData"
+uri = 
 client = MongoClient(uri, server_api=ServerApi('1'))
 db = client["OpenData"]
 collection = db["Velib"]
