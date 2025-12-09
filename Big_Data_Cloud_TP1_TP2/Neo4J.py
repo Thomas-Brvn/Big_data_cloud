@@ -3,7 +3,7 @@ import csv
 
 uri = "bolt://localhost:7687"
 user = "neo4j"
-password = "avml94710"
+password = ""
 
 driver = GraphDatabase.driver(uri, auth=(user, password))
 
@@ -22,10 +22,7 @@ def clean_int(value):
 def import_data():
     with driver.session() as session:
 
-        print("🧨 Clearing database...")
         session.run("MATCH (n) DETACH DELETE n")
-
-        print("📥 Importing Marvel & DC movies from db.csv...")
 
         with open("mcu_data/db.csv", encoding="latin-1") as f:
             reader = csv.DictReader(f)
