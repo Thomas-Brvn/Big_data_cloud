@@ -16,7 +16,7 @@ Il se connecte à une **base de données MongoDB** contenant les données des st
   - Répartition des vélos par arrondissement
  
 
-![Exemple de la carte](https://github.com/Thomas-Brvn/images/blob/main/velib2.jpg)
+![Exemple de la Carte](https://github.com/Thomas-Brvn/images/blob/main/velib2.jpg)
 
 L’utilisateur peut entrer son **adresse à Paris** pour visualiser les stations autour de lui et la distance vers chacune.  
 
